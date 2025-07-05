@@ -3,7 +3,9 @@
 
 #include "Hands/VRHand.h"
 #include "Characters/VRCharacterBase.h"
-
+#include "MotionControllerComponent.h"
+#include "Components/WidgetInteractionComponent.h"
+#include "Components/SphereComponent.h"
 
 // Sets default values
 AVRHand::AVRHand()
@@ -12,6 +14,15 @@ AVRHand::AVRHand()
 	PrimaryActorTick.bCanEverTick = true;
 	MotionController = CreateDefaultSubobject<UMotionControllerComponent>("MotionController");
 	SetRootComponent(MotionController);
+
+	HandMesh = CreateDefaultSubobject<USkeletalMeshComponent>("HandMesh");
+	HandMesh->SetupAttachment(MotionController);
+
+	WidgetInteraction = CreateDefaultSubobject<UWidgetInteractionComponent>("WidgetInteraction");
+	WidgetInteraction->SetupAttachment(HandMesh);
+
+	GrabSphere = CreateDefaultSubobject<USphereComponent>("GrabSphere");
+	GrabSphere->SetupAttachment(HandMesh);
 }
 
 
