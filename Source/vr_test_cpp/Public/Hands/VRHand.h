@@ -9,6 +9,7 @@
 /*
 forward declaration trick move headers to cpp file, and 
 show here that these are class, but defined elsewhere
+mentioned here: https://youtu.be/ZohqKDw-fZQ
 */
 class UMotionControllerComponent;
 class USkeletalMeshComponent;
@@ -29,16 +30,16 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
-	UMotionControllerComponent *MotionController;
+	TObjectPtr<UMotionControllerComponent> MotionController;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components|Hands")
-	USkeletalMeshComponent *HandMesh;
+	TObjectPtr <USkeletalMeshComponent> HandMesh;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components|Hands")
-	UWidgetInteractionComponent *WidgetInteraction;
+	TObjectPtr < UWidgetInteractionComponent> WidgetInteraction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components|Hands")
-	USphereComponent* GrabSphere;
+	TObjectPtr < USphereComponent> GrabSphere;
 
 public:	
 	// Called every frame
