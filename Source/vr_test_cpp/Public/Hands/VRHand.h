@@ -29,6 +29,9 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	virtual void OnConstruction(const FTransform& Transform)override;
+
+#pragma region Components
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UMotionControllerComponent> MotionController;
 
@@ -40,6 +43,15 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components|Hands")
 	TObjectPtr < USphereComponent> GrabSphere;
+#pragma endregion Components
+
+#pragma region Hand data
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components|hands|handData")
+	EControllerHand HandType;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components|hands|handData")
+	bool bMirrorAnimation;
+#pragma endregion Hand data
 
 public:	
 	// Called every frame

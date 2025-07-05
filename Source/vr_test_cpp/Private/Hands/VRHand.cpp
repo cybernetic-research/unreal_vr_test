@@ -7,6 +7,27 @@
 #include "Components/WidgetInteractionComponent.h"
 #include "Components/SphereComponent.h"
 
+void AVRHand::OnConstruction(const FTransform& Transform)
+{
+	Super::OnConstruction(Transform);
+	switch (HandType)
+	{
+		case EControllerHand::Left: 
+		{
+			MotionController->MotionSource = "Left";
+		}
+		break;
+
+		case EControllerHand::Right:
+		{
+			MotionController->MotionSource = "Right";
+		}
+		break;
+
+		default:break;
+	}
+}
+
 // Sets default values
 AVRHand::AVRHand()
 {
