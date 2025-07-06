@@ -51,7 +51,6 @@ AVRHand::AVRHand()
 void AVRHand::BeginPlay()
 {
 	Super::BeginPlay();
-	AVRCharacterBase Character;
 }
 
 // Called every frame
