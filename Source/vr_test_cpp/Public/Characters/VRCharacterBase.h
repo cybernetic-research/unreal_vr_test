@@ -25,6 +25,10 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
 	TObjectPtr<UCameraComponent> Camera;
 
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<USceneComponent> Origin;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

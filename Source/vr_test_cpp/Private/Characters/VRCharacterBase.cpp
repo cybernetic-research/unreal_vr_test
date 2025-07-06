@@ -9,8 +9,11 @@ AVRCharacterBase::AVRCharacterBase()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	Origin = CreateDefaultSubobject<UCameraComponent>("Origin");
+	Origin->SetupAttachment(GetMesh());
+
 	Camera = CreateDefaultSubobject<UCameraComponent>("Camera");
-	Camera->SetupAttachment(GetMesh());
+	Camera->SetupAttachment(Origin);
 }
 
 // Called when the game starts or when spawned
