@@ -32,16 +32,16 @@ protected:
 	virtual void OnConstruction(const FTransform& Transform)override;
 
 #pragma region Components
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UMotionControllerComponent> MotionController;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components|Hands")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components|Hands")
 	TObjectPtr <USkeletalMeshComponent> HandMesh;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components|Hands")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components|Hands")
 	TObjectPtr < UWidgetInteractionComponent> WidgetInteraction;
 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Components|Hands")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components|Hands")
 	TObjectPtr < USphereComponent> GrabSphere;
 #pragma endregion Components
 

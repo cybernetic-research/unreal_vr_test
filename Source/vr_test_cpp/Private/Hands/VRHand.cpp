@@ -51,6 +51,19 @@ AVRHand::AVRHand()
 void AVRHand::BeginPlay()
 {
 	Super::BeginPlay();
+	if ((HandType != EControllerHand::Left) &&
+		(HandType != EControllerHand::Right)) 
+	{
+		if (GEngine != nullptr)
+		{
+			//print to screen - note 
+			GEngine->AddOnScreenDebugMessage(-1,
+				4.0f,
+				FColor::Red, 
+				FString::Printf(TEXT("Class %s: Wrong hand type"),
+				*GetClass()->GetName()));
+		}
+	}
 }
 
 // Called every frame

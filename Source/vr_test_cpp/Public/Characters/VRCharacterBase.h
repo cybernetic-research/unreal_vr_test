@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "VRCharacterBase.generated.h"
 
+class UCameraComponent;
+
 UCLASS()
 //A for actor
 class VR_TEST_CPP_API AVRCharacterBase : public ACharacter
@@ -19,6 +21,9 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	TObjectPtr<UCameraComponent> Camera;
 
 public:	
 	// Called every frame
